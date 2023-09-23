@@ -1,7 +1,7 @@
 # %%
-# # 보스턴 집값 예측하기 : 회귀 분석
+# 3.2 보스턴 집값 예측하기 : 회귀 분석
 # %%
-# 데이터 살펴보기
+# 3.2.1 데이터 살펴보기
 import pandas as pd
 
 # 데이터셋의 URL
@@ -16,7 +16,7 @@ data = pd.read_csv(url, delim_whitespace=True, header=None, names=column_names)
 # 처음 5행을 출력하여 데이터 확인
 print(data.head())
 # %%
-# 학습 코드 구현
+# 3.2.3 모델 정의 및 학습하기
 
 import torch
 import torch.nn as nn
@@ -59,7 +59,7 @@ for epoch in range(200):
     if epoch % 20 == 0:
         print(f"epoch{epoch} loss:{loss}")
 # %%
-# 모델 성능 평가하기
+# 3.2.4 모델 성능 평가하기
 
 prediction = model(torch.FloatTensor(X[0, :13]))
 real = Y[0]

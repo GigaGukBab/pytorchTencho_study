@@ -79,3 +79,22 @@ for epoch in range(20):
 # 4. 모델을 MNIST.pt라는 이름으로 저장
 torch.save(model.state_dict(), "MNIST.pt")
 # %%
+# 3.3.4 모델 성능 평가하기
+
+# 1. 모델 가중치 불러오기
+model.load_state_dict(torch.load("MNIST.pt", map_location=device))
+
+num_corr = 0 # 분류에 성공한 전체 개수
+
+with torch.no_grad(): # 2. 기울기를 계산하지 않음
+    for data, label in test_loader:
+        data = torch.reshape(data, (-1, 784)).to(device)
+
+        output = model(data.to(device))
+        preds = output.data.max(1)[1] # 3. 모델의 예측값 계산
+
+        # 4. 올바르게 분류한 개수
+        corr = preds.eq(label.to(device).data).sum().item()
+        num_corr += corr
+
+    print(f"Accuracy:{num_corr/len(test_data)}") # 분류 정확도 출력

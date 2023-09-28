@@ -1,10 +1,12 @@
-# 데이터 살펴보기
+# 4.2 데이터 전처리하기
+
+## 데이터 살펴보기
 import matplotlib.pyplot as plt
 
 from torchvision.datasets.cifar import CIFAR10
 from torchvision.transforms import ToTensor
 
-# CIFAR-10 데이터셋 불러오기
+### CIFAR-10 데이터셋 불러오기
 training_data = CIFAR10(
     root="./",             # 1
     train=True,            # 2

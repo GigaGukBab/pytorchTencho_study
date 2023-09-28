@@ -1,5 +1,5 @@
 # 4.3.4 모델 성능 평가하기
-from VGG import *
+from defCNN import *
 from VGGBasicBlock import *
 from train import *
 

@@ -1,6 +1,6 @@
-from ResNetBasicBlock import *
-from ResNet import *
-from train import *
+from pytorchTencho_study.CH05.ResNet.ResNetBasicBlock import *
+from pytorchTencho_study.CH05.ResNet.ResNet import *
+from pytorchTencho_study.CH05.ResNet.train import *
 
 model.load_state_dict(torch.load("ResNet.pt", map_location=device))
 

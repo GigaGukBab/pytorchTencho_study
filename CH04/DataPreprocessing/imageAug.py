@@ -1,5 +1,6 @@
 # 4.2.1 데이터 증강
-# 데이터 전처리에 크롭핑과 좌우대칭 추가
+
+## 데이터 전처리에 크롭핑과 좌우대칭 추가
 import matplotlib.pyplot as plt
 import torchvision.transforms as T
 

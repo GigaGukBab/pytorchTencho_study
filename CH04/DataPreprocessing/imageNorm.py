@@ -1,5 +1,6 @@
 # 4.2.2 이미지 정규화
-# 데이터 전처리에 정규화 추가
+
+## 데이터 전처리에 정규화 추가
 import matplotlib.pyplot as plt
 import torchvision.transforms as T
 
@@ -7,7 +8,7 @@ from torchvision.datasets import CIFAR10
 from torchvision.transforms import Compose
 from torchvision.transforms import RandomHorizontalFlip, RandomCrop, Normalize
 
-# 데이터 전처리 정의
+### 데이터 전처리 정의
 transforms = Compose([
     T.ToPILImage(),
     RandomCrop((32, 32), padding=4),
@@ -18,7 +19,7 @@ transforms = Compose([
     T.ToPILImage()
 ])
 
-# 학습용 데이터 정의
+### 학습용 데이터 정의
 training_data = CIFAR10(
     root="./",
     train=True,
@@ -26,7 +27,7 @@ training_data = CIFAR10(
     transform=transforms
 )
 
-# 평가용 데이터 정의
+### 평가용 데이터 정의
 test_data = CIFAR10(
     root="./",
     train=False,
@@ -34,7 +35,7 @@ test_data = CIFAR10(
     transform=transforms
 )
 
-# 이미지 표시
+### 이미지 표시
 for i in range(9):
     plt.subplot(3, 3, i+1)
     plt.imshow(transforms(training_data.data[i]))

@@ -1,6 +1,6 @@
 # 4.3.3 모델 학습하기
 from VGGBasicBlock import *
-from VGG import *
+from defCNN import *
 
 # 데이터 증강 정의
 from torch.utils.data.dataloader import DataLoader

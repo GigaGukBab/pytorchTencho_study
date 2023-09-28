@@ -1,12 +1,12 @@
 # 데이터셋의 평균과 표준편차
-from data_normalize import *
+from imageNorm import *
 import torch
 
 training_data = CIFAR10(
     root="./",
     train=True,
     download=True,
-    transform=ToTensor()
+    transform=T.ToTensor()
 )
 
 # item[0]은 이미지, item[1]은 정답 레이블

@@ -1,0 +1,2 @@
+cifar-10-python.tar.gz filter=lfs diff=lfs merge=lfs -text
+CIFAR_pretrained_ResNet50.pt filter=lfs diff=lfs merge=lfs -text

@@ -1,5 +1,5 @@
-from pytorchTencho_study.CH05.ResNet.ResNetBasicBlock import *
-from pytorchTencho_study.CH05.ResNet.ResNet import *
+from ResNetBasicBlock import *
+from ResNet import *
 import tqdm
 
 from torchvision.datasets import CIFAR10

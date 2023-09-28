@@ -8,7 +8,7 @@ class BasicBlock(nn.Module):
         # 1. Define Convolution Layer
         self.c1 = nn.Conv2d(in_channels, out_channels,
                             kernel_size=kernel_size, padding=1)
-        self.c2 = nn.Conv2d(in_channels, out_channels,
+        self.c2 = nn.Conv2d(out_channels, out_channels,
                             kernel_size=kernel_size, padding=1)
         
         self.downsample = nn.Conv2d(in_channels, out_channels,

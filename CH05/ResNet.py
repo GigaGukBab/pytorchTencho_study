@@ -23,11 +23,11 @@ class ResNet(nn.Module):
     # Define forward pass of ResNet
     def forward(self, x):
         # 1. Pass through the basic block and pooling layer
-        x = self.b1
+        x = self.b1(x)
         x = self.pool(x)
-        x = self.b2
+        x = self.b2(x)
         x = self.pool(x)
-        x = self.b3
+        x = self.b3(x)
         x = self.pool(x)
 
         # 2. Flatten for use as input to the classifier

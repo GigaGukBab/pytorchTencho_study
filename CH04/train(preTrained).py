@@ -1,7 +1,5 @@
-# %%
 # 4.4 전이 학습 모델 VGG로 분류하기
 
-# %%
 # 4.4.1 사전 학습된 모델 불러오기
 
 import torch
@@ -28,7 +26,7 @@ fc = nn.Sequential( # 2. 분류층 정의
 
 model.classifier = fc # 4. VGG의 classifier를 덮어씀
 model.to(device)
-# %%
+
 # 4.4.2 모델 학습하기
 import tqdm
 
@@ -78,20 +76,3 @@ for epoch in range(30):
         iterator.set_description(f"epoch:{epoch+1} loss:{loss}")
 
 torch.save(model.state_dict(), "CIFAR_pretrained.pt") # 모델 저장
-# %%
-# 4.4.3 모델 성능 평가하기
-
-model.load_state_dict(torch.load("CIFAR_pretrained.pt", map_location=device))
-
-num_corr = 0
-
-with torch.no_grad():
-    for data, label in test_loader:
-
-        output = model(data.to(device))
-        preds = output.data.max(1)[1]
-        corr = preds.eq(label.to(device).data).sum()
-        num_corr += corr
-
-    print(f"Accuracy:{num_corr/len(test_data)}")
-# %%

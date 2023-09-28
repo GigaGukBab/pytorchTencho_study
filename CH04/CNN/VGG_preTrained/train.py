@@ -9,7 +9,9 @@ import tqdm
 from torchvision.datasets.cifar import CIFAR10
 from torchvision.transforms import Compose, ToTensor, Resize
 from torchvision.transforms import RandomHorizontalFlip, RandomCrop, Normalize
-from torch.utils.data import DataLoader, random_split
+from torch.utils.data import DataLoader
+from torch.utils.data import Subset
+import numpy as np
 
 from torch.optim.adam import Adam
 
@@ -25,13 +27,20 @@ transforms = Compose([
 training_data = CIFAR10(root="./", train=True, download=True, transform=transforms)
 test_data = CIFAR10(root="./", train=False, download=True, transform=transforms)
 
-train_loader = DataLoader(training_data, batch_size=32, shuffle=True)
-test_loader = DataLoader(test_data, batch_size=32, shuffle=False)
+### 원본 데이터셋에서 10%만 사용하기 위한 인덱스 계산
+train_indices = np.random.choice(len(training_data), size=int(0.1 * len(training_data)), replace=False)
+test_indices = np.random.choice(len(test_data), size=int(0.1 * len(test_data)), replace=False)
 
+### Subset 객체 생성
+training_data_subset = Subset(training_data, train_indices)
+test_data_subset = Subset(test_data, test_indices)
 
-print(f"Training data size: {len(training_data)}")
-print(f"Test data size: {len(test_data)}")
+### DataLoader에 Subset 객체 사용
+train_loader = DataLoader(training_data_subset, batch_size=32, shuffle=True)
+test_loader = DataLoader(test_data_subset, batch_size=32, shuffle=False)
 
+print(f"Training data size: {len(training_data_subset)}")
+print(f"Test data size: {len(test_data_subset)}")
 
 ### 학습 루프 정의
 lr = 1e-4

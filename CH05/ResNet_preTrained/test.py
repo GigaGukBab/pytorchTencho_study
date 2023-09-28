@@ -1,5 +1,5 @@
 # 4.3.4 모델 성능 평가하기
-from ResNet50 import *
+from pytorchTencho_study.CH05.ResNet_preTrained.ResNet50 import *
 from train import *
 
 model.load_state_dict(torch.load("CIFAR_pretrained_ResNet50.pt", map_location=device))

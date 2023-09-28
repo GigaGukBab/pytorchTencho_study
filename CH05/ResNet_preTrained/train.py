@@ -1,5 +1,5 @@
 # 4.4 전이 학습 모델 VGG로 분류하기
-from pytorchTencho_study.CH05.ResNet_preTrained.ResNet50 import *
+from ResNet50 import *
 
 ## 4.4.2 모델 학습하기
 

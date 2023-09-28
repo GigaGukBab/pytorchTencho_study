@@ -1,4 +1,4 @@
-from pytorchTencho_study.CH05.ResNet.ResNetBasicBlock import *
+from ResNetBasicBlock import *
 
 # Define ResNet Model
 class ResNet(nn.Module):

@@ -33,24 +33,25 @@ elif device =="cpu":
 model = ResNet(num_classes=10)
 model.to(device)
 
-# Define Training Loop
-lr = 1e-4
-optim = Adam(model.parameters(), lr=lr)
+if __name__ == "__main__":
+    # Define Training Loop
+    lr = 1e-4
+    optim = Adam(model.parameters(), lr=lr)
 
-for epoch in range(30):
-    iterator = tqdm.tqdm(train_loader)
-    for data, label in iterator:
-        # 1. 최적화를 위해 기울기 초기화
-        optim.zero_grad()
+    for epoch in range(30):
+        iterator = tqdm.tqdm(train_loader)
+        for data, label in iterator:
+            # 1. 최적화를 위해 기울기 초기화
+            optim.zero_grad()
 
-        # 2. 모델의 예측값
-        preds = model(data.to(device))
+            # 2. 모델의 예측값
+            preds = model(data.to(device))
 
-        # 3. 손실 계산 및 역전파
-        loss = nn.CrossEntropyLoss()(preds, label.to(device))
-        loss.backward()
-        optim.step()
+            # 3. 손실 계산 및 역전파
+            loss = nn.CrossEntropyLoss()(preds, label.to(device))
+            loss.backward()
+            optim.step()
 
-        iterator.set_description(f"epoch:{epoch+1} loss:{loss}")
+            iterator.set_description(f"epoch:{epoch+1} loss:{loss}")
 
-torch.save(model.state_dict(), "ResNet.pt") # 모델 저장
+    torch.save(model.state_dict(), "CIFAR10-OwnResNet.pt") # 모델 저장

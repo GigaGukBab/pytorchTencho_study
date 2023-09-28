@@ -42,22 +42,23 @@ test_loader = DataLoader(test_data_subset, batch_size=32, shuffle=False)
 print(f"Training data size: {len(training_data_subset)}")
 print(f"Test data size: {len(test_data_subset)}")
 
-### 학습 루프 정의
-lr = 1e-4
-optim = Adam(model.parameters(), lr=lr)
+if __name__ == "__main__":
+    ### 학습 루프 정의
+    lr = 1e-4
+    optim = Adam(model.parameters(), lr=lr)
 
-for epoch in range(30):
-    iterator = tqdm.tqdm(train_loader) # 1. 학습 로그 출력
-    for data, label in iterator:
-        optim.zero_grad()
+    for epoch in range(30):
+        iterator = tqdm.tqdm(train_loader) # 1. 학습 로그 출력
+        for data, label in iterator:
+            optim.zero_grad()
 
-        preds = model(data.to(device)) # 모델의 예측값 출력
+            preds = model(data.to(device)) # 모델의 예측값 출력
 
-        loss = nn.CrossEntropyLoss()(preds, label.to(device))
-        loss.backward()
-        optim.step()
+            loss = nn.CrossEntropyLoss()(preds, label.to(device))
+            loss.backward()
+            optim.step()
 
-        # 2. tqdm이 출력할 문자열
-        iterator.set_description(f"epoch:{epoch+1} loss:{loss}")
+            # 2. tqdm이 출력할 문자열
+            iterator.set_description(f"epoch:{epoch+1} loss:{loss}")
 
-torch.save(model.state_dict(), "CIFAR_pretrained_ResNet50.pt") # 모델 저장
+    torch.save(model.state_dict(), "CIFAR10-pretrained-ResNet50.pt") # 모델 저장

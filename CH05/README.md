@@ -1,8 +1,8 @@
 ## Model Download Link
 
- - `ResNet`폴더의 `train.py` 실행 후 만들어진 `ResNet.pt` 모델은 [CNN model used ResNet sturcture trained with CIFAR10 Datasets]()에서 다운로드할 수 있습니다.
+ - `ResNet`폴더의 `train.py` 실행 후 만들어진 `CIFAR10-OwnResNet.pt` 모델은 [CIFAR10-OwnResNet.pt](https://github.com/GigaGukBab/pytorchTencho_study/releases/download/pytorch_study/CIFAR10-OwnResNet.pt)에서 다운로드할 수 있습니다.
 
- - `ResNet_preTrained`폴더의 `train.py` 실행 후 만들어진 `CIFAR_pretrained_ResNet50.pt` 모델은 [CNN pre-trained model with ResNet50 sturcture trained with CIFAR10 Datasets]()에서 다운로드할 수 있습니다.
+ - `ResNet_preTrained`폴더의 `train.py` 실행 후 만들어진 `CIFAR10-pretrained-ResNet50.pt` 모델은 [CIFAR10-pretrained-ResNet50.pt](https://github.com/GigaGukBab/pytorchTencho_study/releases/download/pytorch_study/CIFAR10-pretrained-ResNet50.pt)에서 다운로드할 수 있습니다.
    * pre trained model을 training 할 때는 CIFAR10 dataset의 10%만 사용했습니다.
 
 ## CIFAR10 dataset link

@@ -7,4 +7,4 @@
 
 ## CIFAR10 dataset link
 
- - `CIFAR10` 데이터셋은 [CIFAR10 Datasets](https://drive.google.com/file/d/1SVvrw7MiWE8p4_l2o9fFGS9XI3c7cPDl/view?usp=sharing)에서 다운로드할 수 있습니다.
+ - `CIFAR10` 데이터셋은 [CIFAR10 Datasets](https://github.com/GigaGukBab/pytorchTencho_study/releases/download/untagged-4dbf598931a5d943fa0f/cifar-10-python.tar.gz)에서 다운로드할 수 있습니다.

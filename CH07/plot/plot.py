@@ -1,11 +1,6 @@
 import matplotlib.pyplot as plt
 from PIL import Image
 
-__all__ = ["path_to_annotation",
-           "path_to_image",
-           "annotation",
-           "image"]
-
 path_to_annotation = "dataset-iiit-pet-master/annotations/trimaps/"
 path_to_image = "dataset-iiit-pet-master/images/"
 

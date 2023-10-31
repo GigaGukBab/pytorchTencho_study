@@ -5,7 +5,7 @@ from torchvision.transforms import Compose, ToTensor, Resize
 from torch.optim.adam import Adam
 from torch.utils.data import DataLoader
 
-from datasetInit import Pets
+from dataset_init import Pets
 from plot import path_to_image, path_to_annotation
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
